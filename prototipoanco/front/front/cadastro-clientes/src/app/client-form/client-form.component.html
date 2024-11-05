@@ -1,0 +1,61 @@
+<form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <input matInput placeholder="CPF/CNPJ" formControlName="cpfCnpj" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Razão Social" formControlName="razaoSocial" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Bairro" formControlName="bairro" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Cidade" formControlName="cidade" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Estado" formControlName="estado" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Telefone" formControlName="telefone" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" type="email" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="CEP" formControlName="cep" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Data de Inclusão" formControlName="dataInclusao" [matDatepicker]="picker" required />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    
+    <mat-form-field>
+      <input matInput placeholder="Endereço" formControlName="endereco" required />
+    </mat-form-field>
+    
+    <mat-form-field>
+      <mat-select placeholder="Situação" formControlName="situacao" required>
+        <mat-option value="Em Processo">Em Processo</mat-option>
+        <mat-option value="Nome Limpo">Nome Limpo</mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Relatório (PDF)</mat-label>
+        <input matInput placeholder="Selecione o arquivo" [value]="selectedFileName" readonly />
+        <button mat-button matSuffix (click)="fileInput.click()">Escolher Arquivo</button>
+        <input type="file" #fileInput (change)="onFileSelected($event)" accept="application/pdf" hidden />
+      </mat-form-field>
+      
+  
+    <button mat-raised-button color="primary" type="submit">Cadastrar Cliente</button>
+  </form>
+  
